@@ -1,0 +1,1192 @@
+:root{
+    --cream:#F5F0E6;
+    --char:#171717;
+    --burg:#6B1E2D;
+    --brass:#C9A24A;
+    --muted:rgba(23,23,23,.72);
+    --card:rgba(255,255,255,.55);
+    --stroke:rgba(23,23,23,.12);
+    --radius:18px;
+    --shadow:0 18px 40px rgba(0,0,0,.10);
+    --max:1100px;
+    --pad:clamp(16px, 3vw, 28px);
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family: "Playfair Display", "Segoe UI", Roboto, Arial, sans-serif;
+    color:var(--char);
+    background: radial-gradient(1200px 600px at 20% -10%, rgba(201,162,74,.18), transparent 55%),
+                radial-gradient(900px 500px at 90% 10%, rgba(107,30,45,.16), transparent 55%),
+                var(--cream);
+  }
+  a{color:inherit}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 var(--pad);}
+  header{
+    position:sticky; top:0; z-index:10;
+    backdrop-filter: blur(10px);
+    background: rgba(245,240,230,.72);
+    border-bottom:1px solid var(--stroke);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 0;
+    gap:14px;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-weight:800; letter-spacing:.2px;
+  }
+  .mark{
+    width:34px; height:34px; border-radius:10px;
+    background: url('./images/sb.jpg');
+    background-size: 100% 100%;
+    box-shadow: 0 10px 20px rgba(107,30,45,.18);
+  }
+  nav ul{
+    list-style:none; display:flex; gap:18px; padding:0; margin:0;
+    color:var(--muted); font-weight:600; font-size:14px;
+  }
+  nav a{ text-decoration:none; padding:8px 10px; border-radius:10px; }
+  nav a:hover{ background: rgba(23,23,23,.06); color:var(--char); }
+  .actions{display:flex; gap:10px; align-items:center}
+  .btn{
+    border:1px solid var(--stroke);
+    background: rgba(255,255,255,.55);
+    padding:10px 14px; border-radius:999px;
+    font-weight:800; text-decoration:none;
+    box-shadow: 0 10px 25px rgba(0,0,0,.06);
+  }
+  .btn.primary{
+    background: linear-gradient(135deg, var(--char), #171717);
+    color:var(--cream);
+    border-color: rgba(255,255,255,.10);
+  }
+  .btn.primary:hover{ filter:brightness(1.03); }
+  .btn.ghost{
+    background: transparent;
+    border-color: rgba(23,23,23,.20);
+    box-shadow:none;
+  }
+
+  /* Hero */
+  .hero{
+    padding: clamp(26px, 5vw, 56px) 0 26px;
+  }
+  .heroGrid{
+    display:grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: clamp(18px, 4vw, 34px);
+    align-items:stretch;
+  }
+  .kicker{
+    display:inline-flex; gap:10px; align-items:center;
+    padding:8px 12px; border-radius:999px;
+    border:1px solid var(--stroke);
+    background: rgba(255,255,255,.45);
+    color: var(--muted);
+    font-weight:700; font-size:13px;
+  }
+  .kDot{
+    width:8px; height:8px; border-radius:99px; background: var(--brass);
+    box-shadow: 0 0 0 4px rgba(201,162,74,.18);
+  }
+  h1{
+    font-family: ui-serif, Georgia, "Times New Roman", serif;
+    font-weight: 800;
+    letter-spacing: -.6px;
+    margin:14px 0 10px;
+    font-size: clamp(34px, 4.4vw, 54px);
+    line-height:1.02;
+  }
+  .sub{
+    color: var(--muted);
+    font-family: url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&display=swap')
+;
+    font-size: clamp(15px, 1.6vw, 18px);
+    line-height:1.6;
+    max-width: 56ch;
+  }
+
+  .sub2{
+    color: white;
+    font-family: url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&display=swap')
+;
+    font-size: clamp(15px, 1.6vw, 18px);
+    line-height:1.6;
+    max-width: 56ch;
+  }
+
+  .meta{
+    margin:18px 0 22px;
+    display:flex; flex-wrap:wrap; gap:10px;
+    color: rgba(23,23,23,.78);
+    font-weight:700;
+  }
+  .chip{
+    padding:8px 12px; border-radius:999px;
+    border:1px solid var(--stroke);
+    background: rgba(255,255,255,.45);
+    font-size:13px;
+  }
+  .heroCtas{display:flex; gap:10px; flex-wrap:wrap}
+
+  .poster{
+    border-radius: var(--radius);
+    border: 1px solid var(--stroke);
+    background: linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.35));
+    box-shadow: var(--shadow);
+    padding: 16px;
+    position:relative;
+    overflow:hidden;
+  }
+  .poster::before{
+    content:"";
+    position:absolute; inset:-40% -30%;
+    background: radial-gradient(circle at 30% 40%, rgba(201,162,74,.22), transparent 52%),
+                radial-gradient(circle at 70% 60%, rgba(107,30,45,.18), transparent 52%);
+    transform: rotate(10deg);
+    pointer-events:none;
+  }
+  .frame{
+    position:relative;
+    border-radius: 14px;
+    border: 1px solid rgba(23,23,23,.14);
+    background: rgba(23,23,23,.08);
+    aspect-ratio: 3 / 4;
+    display:flex; align-items:center; justify-content:center;
+    font-weight:800; color: rgba(23,23,23,.55);
+  }
+  .posterImg{
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    height: auto;              /* ok to keep */
+    object-fit: cover;         /* crop to fill */
+    display: block;
+    border-radius: 14px;
+    border: 1px solid rgba(23,23,23,.14);
+  }
+  .caption{
+    position:relative;
+    margin-top:10px;
+    font-size:12.5px;
+    color: rgba(23,23,23,.70);
+    display:flex; justify-content:space-between; gap:10px;
+  }
+
+  /* Marquee strip */
+  .strip{
+    margin: 8px 0 26px;
+    border:1px solid var(--stroke);
+    background: rgba(255,255,255,.40);
+    border-radius: 999px;
+    padding: 12px 14px;
+    display:flex; gap:18px; flex-wrap:wrap;
+    color: rgba(23,23,23,.78);
+    font-weight:800;
+  }
+  .strip span{color: rgba(23,23,23,.60); font-weight:700}
+
+  /* Season grid */
+  section{padding: 22px 0;}
+  .sectionTitle{
+    display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
+    margin-bottom: 14px;
+  }
+  .sectionTitle h2{
+    margin:0;
+    font-family: ui-serif, Georgia, "Times New Roman", serif;
+    font-size: clamp(22px, 2.3vw, 30px);
+    letter-spacing: -.3px;
+  }
+  .sectionTitle p{margin:0; color:var(--muted); font-weight:650}
+  .grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .card{
+    border:1px solid var(--stroke);
+    background: rgba(255,255,255,.45);
+    border-radius: var(--radius);
+    padding: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.05);
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .card:hover{ transform: translateY(-3px); box-shadow: 0 18px 40px rgba(0,0,0,.08); }
+  .card h3{margin:0 0 6px; font-size:18px; letter-spacing:-.2px}
+  .tagRow{display:flex; gap:8px; flex-wrap:wrap; margin:10px 0 12px}
+  .tag{
+    font-size:12px; font-weight:800;
+    border:1px solid rgba(23,23,23,.14);
+    background: rgba(245,240,230,.8);
+    padding:6px 10px; border-radius:999px;
+  }
+  .card p{margin:0; color:var(--muted); line-height:1.55}
+  .card .row{display:flex; gap:10px; margin-top:14px; flex-wrap:wrap}
+  .mini{font-size:13px; padding:8px 12px}
+
+  /* Mission */
+  .twoCol{
+    display:grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 14px;
+  }
+  .stats{
+    display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;
+  }
+  .quote{
+    font-family: ui-serif, Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    line-height:1.35;
+  }
+
+  /* Subscribe */
+  .subscribe{
+    display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+    margin-top: 10px;
+  }
+  input{
+    flex:1;
+    min-width: 220px;
+    padding:12px 14px;
+    border-radius:999px;
+    border:1px solid rgba(23,23,23,.18);
+    background: rgba(255,255,255,.6);
+    font-weight:700;
+  }
+
+  /* ===== Footer ===== */
+.siteFooter{
+    margin-top: 26px;
+    padding: 26px 0 18px;
+    border-top: 1px solid var(--stroke);
+    background: linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,.06));
+  }
+  
+  .footerGrid{
+    display: grid;
+    grid-template-columns: 1.4fr .8fr .8fr;
+    gap: 18px;
+    align-items: start;
+  }
+  
+  .footerBrand{
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  
+  .footerLogo{
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    background: url('./images/sb.jpg');
+    background-size: 100% 100%;
+    box-shadow: 0 10px 20px rgba(0,0,0,.10);
+    border: 1px solid rgba(23,23,23,.10);
+  }
+  
+  .footerName{
+    font-weight: 850;
+    letter-spacing: .2px;
+  }
+  
+  .footerMeta{
+    margin-top: 6px;
+    font-style: normal;
+    color: var(--muted);
+    font-weight: 650;
+    line-height: 1.55;
+  }
+  
+  .footerMeta a{
+    text-decoration: none;
+    border-bottom: 1px solid rgba(23,23,23,.18);
+  }
+  .footerMeta a:hover{ border-bottom-color: rgba(23,23,23,.40); }
+  
+  .footerNote{
+    margin-top: 8px;
+    color: rgba(23,23,23,.68);
+    font-weight: 650;
+  }
+  
+  .footerCol{
+    display: grid;
+    gap: 4px;           /* tighter */
+    align-content: start;
+  }
+  
+  .footerLink{
+
+  }
+  
+  .footerTitle{
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    font-weight: 850;
+    color: rgba(23,23,23,.72);
+    margin-bottom: 2px;
+  }
+  
+  .footerLink{
+    font-size: 12.5px;
+    text-decoration: none;
+    color: rgba(23,23,23,.78);
+    font-weight: 700;
+    line-height: 1.2;   /* keeps it compact */
+    padding: 2px 0;     /* small click target without looking spaced out */
+  }
+  .footerLink:hover{ color: var(--char); }
+  
+  .footerBar{
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(23,23,23,.08);
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    color: rgba(23,23,23,.62);
+    font-weight: 650;
+    font-size: 13px;
+  }
+  
+  .footerBarLinks{
+    display: flex;
+    gap: 14px;
+  }
+  .footerBarLinks a{
+    text-decoration: none;
+    border-bottom: 1px solid rgba(23,23,23,.14);
+  }
+  .footerBarLinks a:hover{ border-bottom-color: rgba(23,23,23,.35); }
+  
+  @media (max-width: 900px){
+    .footerGrid{ grid-template-columns: 1fr; }
+  }
+  
+
+  /* Responsive */
+  @media (max-width: 900px){
+    nav ul{display:none}
+    .heroGrid{grid-template-columns:1fr}
+    .grid{grid-template-columns:1fr}
+    .twoCol{grid-template-columns:1fr}
+  }
+  /* ===== 2026 Season Carousel (leave .grid alone) ===== */
+.seasonCarousel{
+    position: relative;
+  }
+  
+  .seasonViewport{
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--radius);
+    scrollbar-width: none; /* Firefox */
+  }
+  .seasonViewport::-webkit-scrollbar{ display:none; } /* Chrome/Safari */
+  
+  .seasonTrack{
+    display: flex;
+    gap: 14px;
+  }
+  
+  .seasonSlide{
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+  
+    position: relative;
+    overflow: hidden;
+  
+    border-radius: var(--radius);
+    border: 1px solid var(--stroke);
+    box-shadow: var(--shadow);
+  
+    background-size: cover;
+    background-position: center;
+  
+    aspect-ratio: 16 / 9; /* change if you want poster-like: 3 / 4 */
+  }
+  
+  .seasonSlide{
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 9; /* keep */
+  
+    /* remove background-image from here if you had it */
+  }
+  
+  /* blurred fill background */
+  .seasonSlide::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--poster) center / cover no-repeat;
+    filter: blur(18px);
+    transform: scale(1.08);
+    opacity: 0.35;
+  }
+  
+  /* the actual poster, fully visible */
+  .seasonSlide::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--poster) center / contain no-repeat;
+  }
+  
+  /* make sure your mask text stays on top */
+  .seasonMask{
+    position: absolute; /* you already have this */
+    z-index: 2;
+  }
+
+  /* bottom third mask */
+  .seasonMask{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  
+    min-height: 33%;
+    padding: 14px 14px 44px; /* extra bottom room so dots don't overlap text */
+  
+    color: var(--cream);
+    background: linear-gradient(
+      to top,
+      rgba(23,23,23,.78) 25%,
+      rgba(23,23,23,.55) 55%,
+      rgba(23,23,23,0) 100%
+    );
+  }
+  
+  .seasonMask h3{
+    margin: 0 0 10px;
+    font-size: clamp(34px, 3.1vw, 58px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+    color: rgba(245,240,230,.98);
+  
+    /* masculine: crisp shadow, not glowy */
+    text-shadow:
+      0 1px 0 rgba(0,0,0,.55),
+      0 10px 28px rgba(0,0,0,.55);
+  }
+  
+  .seasonMask h4{
+    margin: 0 0 10px;
+    font-size: clamp(17px, 3.1vw, 24px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+    color: rgba(245,240,230,.98);
+  
+    /* masculine: crisp shadow, not glowy */
+    text-shadow:
+      0 1px 0 rgba(0,0,0,.55),
+      0 10px 28px rgba(0,0,0,.55);
+  }
+  
+  .seasonMask h5{
+    margin: 0 0 6px;
+    font-weight: 650;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+    color: rgba(245,240,230,.98);
+  
+    /* masculine: crisp shadow, not glowy */
+    text-shadow:
+      0 1px 0 rgba(0,0,0,.55),
+      0 10px 28px rgba(0,0,0,.55);
+  }
+  
+  /* tags inside dark mask: make them readable */
+  .seasonMask .tag{
+    background: rgba(245,240,230,.18);
+    border-color: rgba(245,240,230,.28);
+    color: rgba(245,240,230,.92);
+  }
+  
+  .seasonMask .tag{
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-weight: 700;
+    font-size: 12px;
+  
+    background: rgba(0,0,0,.22);
+    border-color: rgba(245,240,230,.22);
+  }
+
+  .seasonMask p{
+    margin: 0;
+    color: rgba(245,240,230,.85);
+    line-height: 1.5;
+  }
+  
+  .seasonMask .row{
+    margin-top: 14px; /* increase/decrease */
+  }
+  
+  /* dots on-image */
+  .seasonDots{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 12px;
+    z-index: 5;
+  
+    display: flex;
+    gap: 10px;
+  
+    padding: 8px 10px;
+    border-radius: 999px;
+    background: rgba(23,23,23,.18);
+    border: 1px solid rgba(245,240,230,.20);
+    backdrop-filter: blur(8px);
+  }
+  
+  .seasonDot{
+    width: 10px;
+    height: 10px;
+    border-radius: 99px;
+  
+    border: 1px solid rgba(245,240,230,.7);
+    background: rgba(245,240,230,.30);
+  
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .seasonDot[aria-selected="true"]{
+    background: var(--brass);
+    border-color: rgba(201,162,74,.95);
+  }
+  
+  .seasonDot:focus-visible{
+    outline: 2px solid var(--brass);
+    outline-offset: 3px;
+  }
+  
+  @media (max-width: 900px){
+    .seasonSlide{ aspect-ratio: 4 / 3; }
+  }
+  .aboutBand{
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  min-height: calc(100vh - 90px);
+  display: grid;
+  align-items: center;
+}
+
+/* background image layer */
+.aboutMedia{
+  position: absolute;
+  inset: 0;
+  background-image: url("./images/stage.JPG");
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.02);
+}
+
+.supportMedia{
+  position: absolute;
+  inset: 0;
+  background-image: url("./images/somethingbrosupportlandscape.png");
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.02);
+}
+
+/* gradient fade to black + subtle mask for readability */
+.aboutBand::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.85) 0%, rgba(0,0,0,.65) 45%, rgba(0,0,0,.15) 100%);
+  pointer-events:none;
+}
+
+/* optional extra “soft mask” behind text only */
+.aboutContent{
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  padding: 36px;
+  color: #fff;
+  background: rgba(0,0,0,.25);
+  backdrop-filter: blur(2px);
+}
+
+/* mobile: stack and strengthen overlay */
+@media (max-width: 720px){
+  .aboutBand{ min-height: 420px; }
+  .aboutBand::before{
+    background: linear-gradient(180deg, rgba(0,0,0,.85) 0%, rgba(0,0,0,.55) 60%, rgba(0,0,0,.25) 100%);
+  }
+  .aboutContent{
+    margin-top: auto;
+    padding: 22px;
+    background: rgba(0,0,0,.35);
+  }
+}
+
+.aboutActions{
+  display:flex;
+  gap: 10px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.btn.ghost{
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.55);
+}
+
+
+/* ===== Shows heroes block (namespaced, drop-in) ===== */
+
+.shows-block { margin: 24px 0; }
+
+/* Season header (sticky on desktop, static on mobile for nicer swipe) */
+.shows-season { padding: 18px 0 10px; }
+
+.shows-seasonhead{
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  padding: 10px 12px;
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+  background: linear-gradient(180deg, rgba(0,0,0,.78), rgba(0,0,0,.42));
+  border: 1px solid rgba(255,255,255,.10);
+  margin-bottom: 10px;
+}
+
+.shows-season-title{
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.1;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #a4942c;
+}
+
+.shows-season-subtitle{
+  margin: 4px 0 0;
+  font-size: 13px;
+  line-height: 1.2;
+  opacity: .82;
+  color: rgba(255,255,255,.82);
+}
+
+/* Desktop/tablet: vertical stack (scroll down through each show) */
+.shows-rail{
+  display: block;
+}
+
+.shows-hero{
+  --shows-radius: 22px;
+  margin: 16px 0;
+  border-radius: var(--shows-radius);
+  overflow: hidden;
+  position: relative;
+  background: rgba(255,255,255,.04);
+}
+
+/* Blurred side-fill using poster */
+.shows-hero::before{
+  content:"";
+  position:absolute;
+  inset:-25%;
+  background-image: var(--shows-poster);
+  background-size: cover;
+  background-position: center;
+  filter: blur(28px) saturate(1.08);
+  transform: scale(1.2);
+}
+
+/* Contrast overlay for readability */
+.shows-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(80% 120% at 50% 45%, rgba(0,0,0,.18), rgba(0,0,0,.82)),
+    linear-gradient(90deg, rgba(0,0,0,.70), rgba(0,0,0,.25) 42%, rgba(0,0,0,.70));
+}
+
+/* Inner layout */
+.shows-hero-inner{
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(190px, 320px) 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 18px;
+}
+
+/* Poster */
+.shows-hero-poster{
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 18px 50px rgba(0,0,0,.45);
+}
+
+/* Copy */
+.shows-hero-copy{ max-width: 62ch; }
+
+.shows-hero-topline{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  color: #a4942c;
+}
+
+.shows-meta{ font-size: 14px; opacity: .8; }
+
+.shows-hero-title{
+  margin: 0 0 8px;
+  font-size: clamp(22px, 2.2vw, 34px);
+  letter-spacing: .01em;
+  color: #a4942c;
+}
+
+.shows-hero-blurb{ margin: 0 0 14px; opacity: .9; color:#a4942c }
+
+/* Buttons (you said you may replace these site-wide; safe defaults remain) */
+.shows-hero-actions{ display:flex; gap:10px; flex-wrap:wrap; }
+
+.shows-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid rgba(255,255,255,.20);
+  background: rgba(255,255,255,.92);
+  color: #a4942c;
+}
+
+.shows-btn:hover{ transform: translateY(-1px); }
+
+.shows-btn-ghost{ background: transparent; color: #a4942c;; }
+
+/* Badges */
+.shows-badge{
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(0,0,0,.35);
+}
+
+.shows-badge-upcoming{
+  background: rgba(40, 180, 120, .18);
+  border-color: rgba(40, 180, 120, .35);
+}
+
+.shows-badge-past{
+  background: rgba(160, 160, 190, .16);
+  border-color: rgba(160, 160, 190, .28);
+}
+
+/* ===== Fancy mobile: vertical page + horizontal swipe/snap within each season ===== */
+@media (max-width: 700px){
+  .shows-seasonhead{
+    position: sticky;
+    top: 8px;
+    z-index: 20;
+    padding: 10px 12px;
+    margin: 0 0 10px;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    background: linear-gradient(180deg, rgba(0,0,0,.82), rgba(0,0,0,.52));
+  }
+
+  .shows-season-title{
+    font-size: 16px;
+    line-height: 1.1;
+  }
+
+  .shows-season-subtitle{
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+  /* swipe rail only on mobile */
+  .shows-rail{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 88%;
+    gap: 14px;
+
+    overflow-x: auto;
+    padding: 10px 2px 16px;
+
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
+    /* subtle “there's more” hint */
+    mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  }
+
+  .shows-rail::-webkit-scrollbar{ height: 10px; }
+  .shows-rail::-webkit-scrollbar-thumb{
+    background: rgba(255,255,255,.14);
+    border-radius: 999px;
+  }
+
+  .shows-hero{
+    margin: 0;                 /* rail controls spacing */
+    scroll-snap-align: start;
+    --shows-radius: 18px;
+  }
+
+  .shows-hero-inner{
+    grid-template-columns: 1fr;
+    padding: 14px;
+  }
+
+  .shows-hero::after{
+    background: linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.88));
+  }
+}
+
+/* Motion accessibility */
+@media (prefers-reduced-motion: reduce){
+  .shows-btn:hover{ transform: none; }
+}
+
+/* ==========================
+   MOBILE FIXES (drop-in)
+   Paste at END of styles.css
+   ========================== */
+
+/* 1) Stop page-level sideways scrolling */
+html, body { max-width: 100%; overflow-x: hidden; }
+
+/* Keep media from overflowing containers */
+img, svg, video, canvas { max-width: 100%; height: auto; }
+
+/* 2) Header polish for your exact markup */
+header { overflow-x: clip; }
+@supports not (overflow-x: clip){
+  header { overflow-x: hidden; }
+}
+
+@media (max-width: 900px){
+  .nav{
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .brand{
+    flex: 1 1 100%;
+    min-width: 0;
+    font-size: 16px;
+    line-height: 1.15;
+  }
+
+  .mark{
+    width: 28px;
+    height: 28px;
+    border-radius: 9px;
+  }
+
+  /* no mobile nav expansion for now */
+  nav ul{ display: none; }
+
+  .actions{
+    flex: 1 1 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-left: 0;
+  }
+
+  .btn{
+    padding: 10px 12px;
+    font-size: 14px;
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 420px){
+  .actions{
+    justify-content: stretch;
+  }
+  .actions .btn{
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+}
+
+/* 3) Season carousel: give text room on phones */
+@media (max-width: 700px){
+  .seasonSlide{ aspect-ratio: 3 / 4; }
+
+  .seasonMask{
+    min-height: 48%;
+    padding: 12px 12px 50px;
+  }
+
+  .seasonMask h3{
+    font-size: clamp(22px, 6.2vw, 32px);
+    line-height: 1.02;
+  }
+
+  .seasonMask h4{
+    font-size: clamp(15px, 4.2vw, 19px);
+    line-height: 1.15;
+  }
+
+  .seasonMask p{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* 4) Shows rail: hide scrollbars + avoid janky mask-image */
+@media (max-width: 700px){
+  .shows-rail{
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    touch-action: pan-x;
+    overscroll-behavior-x: contain;
+  }
+
+  .shows-rail::-webkit-scrollbar{
+    display: none;
+  }
+}
+/* 5) Fix input min-width forcing overflow on tiny screens */
+@media (max-width: 520px){
+  input{ min-width: 0; width: 100%; }
+}
+
+/* ==========================
+   FOOTER MOBILE POLISH
+   For: .siteFooter markup
+   Paste at END of styles.css
+   ========================== */
+
+.siteFooter{ overflow-x: clip; }
+@supports not (overflow-x: clip){
+  .siteFooter{ overflow-x: hidden; }
+}
+
+/* Make footer links feel nice to tap and never overflow */
+.siteFooter a{
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+/* Grid behavior */
+.footerGrid{
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 22px;
+  align-items: start;
+}
+
+/* Brand block layout */
+.footerBrand{
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.footerLogo{
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  flex: 0 0 auto;
+}
+
+/* Brand text */
+.footerName{
+  line-height: 1.1;
+}
+
+.footerMeta{
+  margin: 8px 0 0;
+  font-style: normal; /* addresses default italics */
+  opacity: .9;
+}
+
+.footerNote{
+  margin-top: 10px;
+  opacity: .85;
+}
+
+/* Footer columns */
+.footerCol{
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.footerTitle{
+  margin-bottom: 2px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-size: 12px;
+  opacity: .8;
+}
+
+.footerLink{
+  display: inline-block;
+  padding: 6px 0;              /* tap-friendly without looking like giant buttons */
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+/* Footer bar */
+.footerBar{
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Keep the link group from exploding */
+.footerBarLinks{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 900px){
+  .footerGrid{
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .footerBrand{
+    align-items: flex-start;
+  }
+
+  .footerLogo{
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+  }
+
+  .footerName{
+    font-size: 16px;
+  }
+
+  .footerMeta,
+  .footerNote{
+    font-size: 14px;
+    line-height: 1.35;
+  }
+
+  /* make links easier to tap on phones */
+  .footerLink{
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 420px){
+  /* tighten a bit on tiny screens */
+  .footerMeta{ line-height: 1.4; }
+  .footerBar{ align-items: flex-start; }
+}
+
+@media (max-width: 700px){
+  .footerGrid{
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .footerBrand{
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    gap: 10px;
+    align-items: start;
+    min-width: 0;
+  }
+
+  .footerLogo{
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+  }
+
+  .footerBrand > div,
+  .footerCol,
+  .footerMeta,
+  .footerNote,
+  .footerBar,
+  .footerBarLinks{
+    min-width: 0;
+  }
+
+  .footerName{
+    font-size: 15px;
+    line-height: 1.15;
+  }
+
+  .footerMeta,
+  .footerNote{
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .footerMeta a,
+  .footerLink{
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .footerCol{
+    gap: 2px;
+  }
+
+  .footerLink{
+    padding: 6px 0;
+    font-size: 13px;
+    line-height: 1.25;
+  }
+
+  .footerBar{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 12px;
+  }
+
+  .footerBarLinks{
+    gap: 10px;
+  }
+}
